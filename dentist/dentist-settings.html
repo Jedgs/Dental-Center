@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dentist Settings | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="dentist-css/dentist-settings.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dentist-dash.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="dentist-appointment.html"><i class="bi bi-person-vcard"></i> Appointments</a>
+            <a href="dentist-patients.html"><i class="bi bi-people"></i> Patients Records</a>
+            <a href="dentist-chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="#" class="active"><i class="bi bi-gear"></i> Settings</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Save Changes</h1>
+                <p>Manage your account settings and preferences</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='dentist-settings.html'">
+                <span class="user-name">Doc Womark</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- ─── SETTINGS SECTIONS ─── -->
+
+        <!-- 1. Account Security -->
+        <div class="settings-card">
+            <h2>Account Security</h2>
+            <p>Change your admin account password</p>
+            <button class="btn-change-password" id="changePasswordBtn">
+                <i class="bi bi-lock"></i> Change My Password
+            </button>
+        </div>
+
+        <!-- 2. Staff Account (no dropdown – matches reference image) -->
+        <div class="settings-card">
+            <h2>Staff Account</h2>
+            <p>Create portal access for employee so they can log in and view their own tasks and attendance. They log in using their Email Account as username.</p>
+
+            <div class="staff-list">
+                <div class="staff-item">
+                    <span class="staff-name">Maria Santos</span>
+                    <span class="staff-role-label">Staff</span>
+                </div>
+            </div>
+
+            <div class="staff-actions">
+                <button class="btn-set-passwords" id="setPasswordsBtn"><i class="bi bi-key"></i> Set Passwords</button>
+                <button class="btn-grant-access" id="grantAccessBtn"><i class="bi bi-person-plus"></i> Grant Access</button>
+            </div>
+        </div>
+
+        <!-- 3. Activity Log -->
+        <div class="settings-card">
+            <h2>Activity Log</h2>
+            <p>System activity and user actions</p>
+            <div class="activity-log">
+                <div class="activity-item">
+                    <span class="activity-user">Maria Santos</span>
+                    <span class="activity-action">- contacted appointment</span>
+                    <span class="activity-time">3/20/2024 5:00PM</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-user">Maria Santos</span>
+                    <span class="activity-action">- accepted appointment</span>
+                    <span class="activity-time">3/20/2024 5:00PM</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-user">Maria Santos</span>
+                    <span class="activity-action">- declined appointment</span>
+                    <span class="activity-time">3/20/2024 5:00PM</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ─── LOGOUT CONFIRMATION MODAL ─── -->
+    <div class="logout-modal-overlay" id="logoutModal">
+        <div class="logout-modal">
+            <div class="modal-icon">
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
+            <h3>Logout?</h3>
+            <p>Are you sure you want to log out? You will be redirected to the login page.</p>
+            <div class="modal-actions">
+                <button class="btn-stay" id="stayBtn">Stay</button>
+                <button class="btn-logout" id="confirmLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dentist-js/dentist-settings.js"></script>
+</body>
+</html>

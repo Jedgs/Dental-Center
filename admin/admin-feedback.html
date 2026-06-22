@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Feedback | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="admin-css/admin-feedback.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="admin-dash.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="admin-appointment.html"><i class="bi bi-person-vcard"></i> Appointments</a>
+            <a href="admin-book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="admin-services.html"><i class="fa-solid fa-tooth"></i> Services</a>
+            <a href="admin-patients.html"><i class="bi bi-people"></i> Patients</a>
+            <a href="admin-billing.html"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="admin-inventory.html"><i class="bi bi-box-seam"></i> Inventory</a>
+            <a href="admin-chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="#" class="active"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="admin-settings.html"><i class="bi bi-gear"></i> Settings</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Feedback & Ratings</h1>
+                <p>Monitor patient reviews and satisfaction</p>
+            </div>
+            <div class="top-bar-actions">
+                <div class="user-actions" onclick="window.location.href='admin-settings.html'">
+                    <span class="user-name">Admin Womark</span>
+                    <i class="bi bi-person-circle user-avatar"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-card stat-blue">
+                <div class="stat-label">Average Rating</div>
+                <div class="stat-value">4.4</div>
+            </div>
+            <div class="stat-card stat-green">
+                <div class="stat-label">Total Reviews</div>
+                <div class="stat-value">5</div>
+            </div>
+            <div class="stat-card stat-yellow">
+                <div class="stat-label">Satisfaction Rate</div>
+                <div class="stat-value">60%</div>
+            </div>
+        </div>
+
+         <button class="btn-download-feedback" id="downloadFeedbackBtn">
+            <i class="bi bi-download"></i> Download
+        </button>
+
+        <!-- ─── RATING DISTRIBUTION & REVIEWS ─── -->
+        <div class="feedback-grid">
+
+            <!-- LEFT: Rating Distribution (with pie chart) -->
+            <section class="rating-distribution">
+                <div class="card">
+                    <h3>Rating Distribution</h3>
+                    <!-- Pie chart (donut) + bars side-by-side -->
+                    <div class="pie-chart-wrapper">
+                        <svg viewBox="0 0 120 120" class="pie-chart">
+                            <circle cx="60" cy="60" r="50" fill="transparent" stroke="#E5E7EB" stroke-width="14" />
+                            <circle cx="60" cy="60" r="50" fill="transparent" stroke="#1B4965" stroke-width="14"
+                                stroke-linecap="round" stroke-dasharray="273.5 314.2" stroke-dashoffset="0"
+                                transform="rotate(-90 60 60)" />
+                            <text x="60" y="56" text-anchor="middle" font-size="20" font-weight="800" fill="#15171F">4.35</text>
+                            <text x="60" y="73" text-anchor="middle" font-size="9.5" font-weight="600" fill="#8a9aa8">17 Reviews</text>
+                        </svg>
+                        <div class="rating-bar-list">
+                            <div class="rating-bar-item">
+                                <span class="star-label">5</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 52.9%;"></div>
+                                </div>
+                                <span class="bar-percent">9 (52.9%)</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span class="star-label">4</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 29.4%;"></div>
+                                </div>
+                                <span class="bar-percent">5 (29.4%)</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span class="star-label">3</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 17.6%;"></div>
+                                </div>
+                                <span class="bar-percent">3 (17.6%)</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span class="star-label">2</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 0%;"></div>
+                                </div>
+                                <span class="bar-percent">0 (0%)</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span class="star-label">1</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 0%;"></div>
+                                </div>
+                                <span class="bar-percent">0 (0%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT: Reviews List -->
+            <section class="reviews-section">
+                <div class="card">
+                    <div class="reviews-header">
+                        <h3>Reviews</h3>
+                        <div class="status-dropdown" id="statusDropdown">
+                            <button class="status-dropdown-btn" id="statusDropdownBtn" type="button">
+                                <span id="statusDropdownLabel">All Status</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <ul class="status-dropdown-menu" id="statusDropdownMenu">
+                                <li data-rating="all" class="active">All Status</li>
+                                <li data-rating="5">5 Stars</li>
+                                <li data-rating="4">4 Stars</li>
+                                <li data-rating="3">3 Stars</li>
+                                <li data-rating="2">2 Stars</li>
+                                <li data-rating="1">1 Stars</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="reviews-list">
+                        <div class="review-item" data-rating="5">
+                            <div class="review-top">
+                                <div class="review-info">
+                                    <span class="reviewer-name">Rade Tejano</span>
+                                    <span class="review-category">Overall Experience</span>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                            <p class="review-comment">Excellent Service and friendly staff!</p>
+                        </div>
+                        <div class="review-item" data-rating="4">
+                            <div class="review-top">
+                                <div class="review-info">
+                                    <span class="reviewer-name">Verena Smith</span>
+                                    <span class="review-category">Dentist Performance</span>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                            </div>
+                            <p class="review-comment">Very Professional</p>
+                        </div>
+                        <div class="review-item" data-rating="3">
+                            <div class="review-top">
+                                <div class="review-info">
+                                    <span class="reviewer-name">Mikaela Celani</span>
+                                    <span class="review-category">Overall Experience</span>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                            </div>
+                            <p class="review-comment">Highly Recommended!</p>
+                        </div>
+                        <div class="review-item" data-rating="1">
+                            <div class="review-top">
+                                <div class="review-info">
+                                    <span class="reviewer-name">Conrad Norris</span>
+                                    <span class="review-category">Appointment Scheduling</span>
+                                </div>
+                                <div class="review-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                            </div>
+                            <p class="review-comment">Good treatment, but waiting time was a bit long tho the experience is novel</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- ─── LOGOUT CONFIRMATION MODAL ─── -->
+    <div class="logout-modal-overlay" id="logoutModal">
+        <div class="logout-modal">
+            <div class="modal-icon">
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
+            <h3>Logout?</h3>
+            <p>Are you sure you want to log out? You will be redirected to the login page.</p>
+            <div class="modal-actions">
+                <button class="btn-stay" id="stayBtn">Stay</button>
+                <button class="btn-logout" id="confirmLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </div>
+    <script src="admin-js/admin-feedback.js"></script>
+</body>
+</html>

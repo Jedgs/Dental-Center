@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="auth-css/forgot.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="forgot-container">
+        <!-- HEADER -->
+        <div class="forgot-header">
+            <h1>Forgot Password</h1>
+            <p>Enter your email address to receive reset instructions</p>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- ─── EMAIL FORM (visible) ─── -->
+        <form id="forgotEmailForm" class="form-stack">
+            <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required />
+            </div>
+            <button type="submit" class="btn-reset">Send Verification Code</button>
+        </form>
+
+        <!-- ─── LINKS ─── -->
+        <div class="additional-links">
+            <p>Remembered your password? <a href="login.html">Login here</a></p>
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+
+        <!-- ─── HIDDEN RESET PASSWORD SECTION ─── -->
+        <div class="reset-section" id="resetSection">
+            <h2>Reset Your Password</h2>
+            <form id="resetPasswordForm" class="form-stack">
+                <div class="form-group">
+                    <label for="newPassword">New Password <span class="required">*</span></label>
+                    <div class="password-wrapper">
+                        <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password" required />
+                        <button type="button" class="toggle-password" data-target="newPassword" aria-label="Toggle password visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                    <div class="password-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm new password" required />
+                        <button type="button" class="toggle-password" data-target="confirmPassword" aria-label="Toggle password visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn-reset">Update Password</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ─── OTP MODAL ─── -->
+    <div class="modal-overlay" id="otpModal">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h2>Verify Your Email</h2>
+            <p>
+                We've sent a 6-digit verification code to <strong id="otpEmailDisplay">your@email.com</strong>.
+                Enter it below to reset your password.
+            </p>
+
+            <div class="otp-input-group" id="otpInputGroup">
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+            </div>
+
+            <button class="btn-verify" id="verifyBtn">Verify</button>
+
+            <div class="resend-row">
+                <span id="resendTimer">Resend code in 60s</span>
+                <button class="resend-btn" id="resendBtn" disabled>Resend</button>
+            </div>
+
+            <button class="close-modal" id="closeModal">Cancel</button>
+        </div>
+    </div>
+
+    <script src="auth-js/forgot.js"></script>
+</body>
+
+</html>

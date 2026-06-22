@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Records | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="dash-css/records.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="appointment.html"><i class="bi bi-person-vcard"></i> My Appointment</a>
+            <a href="book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="#" class="active"><i class="bi bi-file-earmark-text"></i> My Records</a>
+            <a href="billing.html"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="feedback.html"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>My Records</h1>
+                <p>View your complete dental history and treatment records</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='profile.html'">
+                <span class="user-name">Womark David Salita</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- ─── RECORDS LIST ─── -->
+        <div class="record-list">
+
+            <!-- Record 1 -->
+            <div class="record-item">
+                <div class="record-info">
+                    <div class="record-title">Root Canal Treatment</div>
+                    <div class="record-date">January 23, 2026</div>
+                    <div class="record-desc">Root canal treatment on upper left molar</div>
+                </div>
+                <button class="view-details-btn" data-record-id="TR-00125">
+                    <i class="bi bi-eye"></i> View Details
+                </button>
+            </div>
+
+            <!-- Record 2 -->
+            <div class="record-item">
+                <div class="record-info">
+                    <div class="record-title">Dental Filling</div>
+                    <div class="record-date">December 15, 2025</div>
+                    <div class="record-desc">Composite filling on lower right premolar</div>
+                </div>
+                <button class="view-details-btn" data-record-id="TR-00124">
+                    <i class="bi bi-eye"></i> View Details
+                </button>
+            </div>
+
+            <!-- Record 3 -->
+            <div class="record-item">
+                <div class="record-info">
+                    <div class="record-title">Teeth Whitening</div>
+                    <div class="record-date">November 5, 2025</div>
+                    <div class="record-desc">Professional in-office bleaching treatment</div>
+                </div>
+                <button class="view-details-btn" data-record-id="TR-00123">
+                    <i class="bi bi-eye"></i> View Details
+                </button>
+            </div>
+
+            <!-- Record 4 -->
+            <div class="record-item">
+                <div class="record-info">
+                    <div class="record-title">Braces Adjustment</div>
+                    <div class="record-date">October 10, 2025</div>
+                    <div class="record-desc">Monthly orthodontic wire adjustment</div>
+                </div>
+                <button class="view-details-btn" data-record-id="TR-00122">
+                    <i class="bi bi-eye"></i> View Details
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ─── RECORD DETAILS MODAL ─── -->
+    <div class="record-modal-overlay" id="recordModal">
+        <div class="record-modal">
+            <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+            <h3>Dental Treatment Record</h3>
+            <p class="record-id" id="modalRecordId">Treatment Record #TR-00125</p>
+
+            <div class="modal-details">
+                <p><strong>Patient:</strong> Juan Dela Cruz</p>
+                <p><strong>Dentist:</strong> Dr. Maria Santos</p>
+                <p><strong>Date:</strong> June 15, 2026</p>
+                <p><strong>Service:</strong> Dental Cleaning</p>
+                <p><strong>Duration:</strong> 45 Minutes</p>
+            </div>
+
+            <div class="modal-notes">
+                <label for="notesInput">Notes:</label>
+                <textarea id="notesInput" rows="4" placeholder="Patient tolerated the procedure well."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="dash-js/record.js"></script>
+</body>
+
+</html>

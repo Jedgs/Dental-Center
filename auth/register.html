@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="auth-css/register.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+
+    <div class="register-container">
+        <div class="register-header">
+            <h1>Create an Account</h1>
+            <p>Join our Dental Community</p>
+        </div>
+
+        <form id="registerForm" class="form-stack" novalidate>
+
+            <!-- ─── 1. ACCOUNT INFORMATION ─── -->
+            <section class="form-section">
+                <div class="form-section-title">
+                    <i class="fas fa-user-circle"></i> Account Information
+                </div>
+
+                <div class="form-group">
+                    <label for="fullname">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Full Name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="Email" required />
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password" name="password" placeholder="Enter password" required />
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility" data-target="password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-feedback hidden" id="passwordFeedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Confirm Password <span class="required">*</span></label>
+                        <div class="password-wrapper">
+                            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required />
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility" data-target="confirm_password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-feedback hidden" id="confirmFeedback"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── 2. MEDICAL HISTORY ─── -->
+            <section class="form-section">
+                <div class="form-section-title">
+                    <i class="fas fa-notes-medical"></i> Medical History
+                </div>
+
+                <div class="medical-grid">
+                    <div class="form-group">
+                        <label for="physician">Name of Physician <span class="required">*</span></label>
+                        <input type="text" id="physician" name="physician" placeholder="Name of Physician" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialty">Specialty (if applicable)</label>
+                        <input type="text" id="specialty" name="specialty" placeholder="Specialty (optional)" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clinic">Clinic Address <span class="required">*</span></label>
+                        <input type="text" id="clinic" name="clinic" placeholder="Clinic Address" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="office">Office Number <span class="required">*</span></label>
+                        <input type="text" id="office" name="office" placeholder="Office Number" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="good_health">Are you in good health? <span class="required">*</span></label>
+                        <select id="good_health" name="good_health" required>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="medical_treatment">Under medical treatment now? <span class="required">*</span></label>
+                        <select id="medical_treatment" name="medical_treatment" required>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serious_illness">Ever had serious illness / surgery? <span class="required">*</span></label>
+                        <select id="serious_illness" name="serious_illness" required>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hospitalized">Ever been hospitalized? <span class="required">*</span></label>
+                        <select id="hospitalized" name="hospitalized" required>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="medications">Taking prescription/non-prescription meds? <span class="required">*</span></label>
+                        <select id="medications" name="medications" required>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tobacco">Use tobacco products? <span class="required">*</span></label>
+                        <select id="tobacco" name="tobacco" required>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="drugs">Use alcohol, cocaine, or other dangerous drugs? <span class="required">*</span></label>
+                        <select id="drugs" name="drugs" required>
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── 3. PATIENT INFORMATION ─── -->
+            <section class="form-section">
+                <div class="form-section-title">
+                    <i class="fas fa-id-card"></i> Patient Information
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birthdate">Date of Birth <span class="required">*</span></label>
+                        <input type="date" id="birthdate" name="birthdate" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender <span class="required">*</span></label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age <span class="required">*</span></label>
+                        <input type="number" id="age" name="age" placeholder="Age" required min="0" max="150" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="occupation">Occupation <span class="required">*</span></label>
+                        <input type="text" id="occupation" name="occupation" placeholder="Occupation" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact_number">Contact Number <span class="required">*</span></label>
+                        <input type="tel" id="contact_number" name="contact_number" placeholder="Contact number" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address <span class="required">*</span></label>
+                        <input type="text" id="address" name="address" placeholder="Address" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dental_insurance">Dental Insurance</label>
+                        <input type="text" id="dental_insurance" name="dental_insurance" placeholder="Dental insurance (optional)" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="effective_date">Effective Date</label>
+                        <input type="date" id="effective_date" name="effective_date" />
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── 4. FORM ACTIONS ─── -->
+            <div class="form-actions">
+                <button type="submit" class="btn-register" id="registerBtn" disabled>
+                    <i class="fas fa-user-plus" style="margin-right: 10px;"></i> Register
+                </button>
+                <p>
+                    Already have an account? <a href="login.html">Login here</a>
+                </p>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- ─── OTP VERIFICATION OVERLAY ─── -->
+    <div class="modal-overlay" id="otpModal">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h2>Verify Your Email</h2>
+            <p>
+                We've sent a 6-digit verification code to <strong id="otpEmailDisplay">your@email.com</strong>.
+                Enter it below to complete your registration.
+            </p>
+
+            <div class="otp-input-group" id="otpInputGroup">
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+                <input type="text" maxlength="1" class="otp-digit" placeholder="0" inputmode="numeric" pattern="[0-9]" />
+            </div>
+
+            <button class="btn-verify" id="verifyBtn">Verify</button>
+
+            <div class="resend-row">
+                <span id="resendTimer">Resend code in 60s</span>
+                <button class="resend-btn" id="resendBtn" disabled>Resend</button>
+            </div>
+
+            <button class="close-modal" id="closeModal">Cancel &amp; go back</button>
+        </div>
+    </div>
+
+<script src="auth-js/register.js"></script>
+</body>
+
+</html>

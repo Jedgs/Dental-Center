@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Chatbox | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="admin-css/admin-chatbox.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="admin-dash.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="admin-appointment.html"><i class="bi bi-person-vcard"></i> Appointments</a>
+            <a href="admin-book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="admin-services.html"><i class="fa-solid fa-tooth"></i> Services</a>
+            <a href="admin-patients.html"><i class="bi bi-people"></i> Patients</a>
+            <a href="admin-billing.html"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="admin-inventory.html"><i class="bi bi-box-seam"></i> Inventory</a>
+            <a href="#" class="active"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="admin-feedback.html"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="admin-settings.html"><i class="bi bi-gear"></i> Settings</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Chatbox</h1>
+                <p>Respond to patient inquiries and messages</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='admin-settings.html'">
+                <span class="user-name">Admin Womark</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- ─── CHAT LAYOUT ─── -->
+        <div class="chat-layout">
+
+            <!-- LEFT: Conversation List -->
+            <div class="conv-panel">
+                <div class="conv-search">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="convSearch" placeholder="Search conversations here..." />
+                </div>
+                <div class="conv-list" id="convList">
+                    <!-- populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- RIGHT: Chat Window -->
+            <div class="chat-panel">
+
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <span class="chat-header-name" id="chatHeaderName">Raegan Vallejo</span>
+                </div>
+
+                <!-- Messages -->
+                <div class="chat-messages" id="chatMessages">
+                    <!-- populated by JavaScript -->
+                </div>
+
+                <!-- Input Bar -->
+                <div class="chat-input-bar">
+                    <input type="text" id="chatInput" class="chat-input" placeholder="Type your message here..." />
+                    <button class="chat-send-btn" id="chatSendBtn" aria-label="Send">
+                        <i class="bi bi-send-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="admin-js/admin-chatbox.js"></script>
+</body>
+</html>

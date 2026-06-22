@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Inventory | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="admin-css/admin-inventory.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="admin-dash.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="admin-appointment.html"><i class="bi bi-person-vcard"></i> Appointments</a>
+            <a href="admin-book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="admin-services.html"><i class="fa-solid fa-tooth"></i> Services</a>
+            <a href="admin-patients.html"><i class="bi bi-people"></i> Patients</a>
+            <a href="admin-billing.html"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="#" class="active"><i class="bi bi-box-seam"></i> Inventory</a>
+            <a href="admin-chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="admin-feedback.html"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="admin-settings.html"><i class="bi bi-gear"></i> Settings</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Inventory</h1>
+                <p>Track dental supplies and equipment</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='admin-settings.html'">
+                <span class="user-name">Admin Womark</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-card stat-blue">
+                <div class="stat-label">Total Items</div>
+                <div class="stat-value" id="totalItems">23</div>
+            </div>
+            <div class="stat-card stat-green">
+                <div class="stat-label">Total Stock</div>
+                <div class="stat-value" id="totalStock">234</div>
+            </div>
+            <div class="stat-card stat-red">
+                <div class="stat-label">Low Stock</div>
+                <div class="stat-value" id="lowStockCount">3</div>
+            </div>
+        </div>
+
+        <!-- ─── TOOLBAR ─── -->
+        <div class="inventory-toolbar">
+            <div class="search-wrapper">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search name here..." />
+            </div>
+            <div class="filter-group">
+                <label for="statusFilter">All Status</label>
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="In Stock">In Stock</option>
+                    <option value="Low Stock">Low Stock</option>
+                </select>
+            </div>
+            <button class="add-btn" id="addItemBtn"><i class="bi bi-plus-circle"></i> Add Item</button>
+        </div>
+
+        <!-- ─── INVENTORY TABLE ─── -->
+        <div class="table-wrapper">
+            <table class="inventory-table" id="inventoryTable">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Item Code</th>
+                        <th>Qty Received</th>
+                        <th>Qty Used</th>
+                        <th>Stock on Hand</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- rows inserted by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- ─── ADD INVENTORY ITEM MODAL (no close button) ─── -->
+    <div class="modal-overlay" id="addModal">
+        <div class="modal-content">
+            <h2>Add New Inventory Item</h2>
+            <form id="addForm">
+                <div class="form-group">
+                    <label for="addItemName">Item Name</label>
+                    <input type="text" id="addItemName" placeholder="Enter Item Name" />
+                </div>
+                <div class="form-group">
+                    <label for="addItemCode">Item Code</label>
+                    <input type="text" id="addItemCode" placeholder="Enter Item Code" />
+                </div>
+                <div class="form-group">
+                    <label for="addCategory">Category</label>
+                    <select id="addCategory">
+                        <option value="Disposables">Disposables</option>
+                        <option value="Instruments">Instruments</option>
+                        <option value="Medications">Medications</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="addQuantity">Quantity</label>
+                    <input type="number" id="addQuantity" placeholder="4500" />
+                </div>
+                <div class="form-group">
+                    <label for="addMinStock">Minimum stock level</label>
+                    <input type="number" id="addMinStock" placeholder="10" />
+                </div>
+                <div class="form-group">
+                    <label for="addPrice">Price</label>
+                    <input type="number" step="0.01" id="addPrice" placeholder="0.0" />
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="addCancelBtn">Cancel</button>
+                    <button type="submit" class="btn-save">Add New Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ─── EDIT INVENTORY ITEM MODAL (no close button) ─── -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal-content">
+            <h2>Edit Inventory Item</h2>
+            <form id="editForm">
+                <input type="hidden" id="editItemId" />
+                <div class="form-group">
+                    <label for="editItemName">Item Name</label>
+                    <input type="text" id="editItemName" placeholder="Item Name" />
+                </div>
+                <div class="form-group">
+                    <label for="editItemCode">Item Code</label>
+                    <input type="text" id="editItemCode" placeholder="Item Code" />
+                </div>
+                <div class="form-group">
+                    <label for="editCategory">Category</label>
+                    <select id="editCategory">
+                        <option value="Disposables">Disposables</option>
+                        <option value="Instruments">Instruments</option>
+                        <option value="Medications">Medications</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editQuantity">Quantity</label>
+                    <input type="number" id="editQuantity" placeholder="Quantity" />
+                </div>
+                <div class="form-group">
+                    <label for="editMinStock">Minimum stock level</label>
+                    <input type="number" id="editMinStock" placeholder="Minimum stock" />
+                </div>
+                <div class="form-group">
+                    <label for="editPrice">Price</label>
+                    <input type="number" step="0.01" id="editPrice" placeholder="Price" />
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="editCancelBtn">Cancel</button>
+                    <button type="submit" class="btn-save">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ─── LOGOUT CONFIRMATION MODAL ─── -->
+    <div class="logout-modal-overlay" id="logoutModal">
+        <div class="logout-modal">
+            <div class="modal-icon">
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
+            <h3>Logout?</h3>
+            <p>Are you sure you want to log out? You will be redirected to the login page.</p>
+            <div class="modal-actions">
+                <button class="btn-stay" id="stayBtn">Stay</button>
+                <button class="btn-logout" id="confirmLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-js/admin-inventory.js"></script>
+</body>
+</html>

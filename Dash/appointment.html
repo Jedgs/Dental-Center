@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Appointment | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="dash-css/appointment.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="#" class="active"><i class="bi bi-person-vcard"></i> My Appointment</a>
+            <a href="book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="records.html"><i class="bi bi-file-earmark-text"></i> My Records</a>
+            <a href="billing.html"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="feedback.html"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── CANCEL CONFIRMATION MODAL ─── -->
+    <div class="cancel-modal-overlay" id="cancelModalOverlay">
+        <div class="cancel-modal">
+            <div class="modal-icon">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+            <h3>Cancel Appointment?</h3>
+            <p>Are you sure you want to cancel this appointment? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="btn-keep" id="keepAppointmentBtn">Keep Appointment</button>
+                <button class="btn-confirm-cancel" id="confirmCancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 1: SERVICE SELECTION MODAL ─── -->
+    <div class="service-modal-overlay" id="serviceModalOverlay">
+        <div class="service-modal">
+            <h2>Services</h2>
+            <ul class="service-list" id="serviceList">
+                <li data-price="800" data-duration="30">Dental Consultation</li>
+                <li data-price="4500" data-duration="45">Orthodontic Treatment/Braces</li>
+                <li data-price="3500" data-duration="40">Removal Partial Denture</li>
+                <li data-price="5000" data-duration="50">Full Denture/Complete Denture</li>
+                <li data-price="1200" data-duration="30">Oral Paraphyaxis</li>
+                <li data-price="3000" data-duration="60">Tooth Bleaching/Whitening</li>
+                <li data-price="4500" data-duration="45">Odontectomy</li>
+                <li data-price="1500" data-duration="20">Tooth Extraction</li>
+                <li data-price="6000" data-duration="60">Jacket Crown/Fixed Bridge</li>
+                <li data-price="5500" data-duration="45">Veeners</li>
+                <li data-price="7000" data-duration="90">RCT (Root Canal Treatment)</li>
+                <li data-price="4000" data-duration="40">TMJ-Ortho</li>
+                <li data-price="4000" data-duration="40">TMJ Disorder</li>
+                <li data-price="2000" data-duration="25">Retainers</li>
+            </ul>
+            <div class="service-modal-actions">
+                <button class="btn-service-cancel" id="serviceCancelBtn">Cancel</button>
+                <button class="btn-service-next" id="serviceNextBtn" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 2: RESCHEDULE DETAILS MODAL ─── -->
+    <div class="reschedule-modal-overlay" id="rescheduleModalOverlay">
+        <div class="reschedule-modal">
+            <h3 id="selectedServiceTitle">Service</h3>
+            <div class="reschedule-details">
+                <div class="reschedule-row">
+                    <span class="reschedule-label">Price</span>
+                    <span class="reschedule-value" id="reschedulePrice">0</span>
+                </div>
+                <div class="reschedule-row">
+                    <span class="reschedule-label">Duration</span>
+                    <span class="reschedule-value" id="rescheduleDuration">0</span>
+                </div>
+                <div class="reschedule-row">
+                    <span class="reschedule-label">Day of Appointment</span>
+                    <input type="date" class="reschedule-input" id="rescheduleDate" />
+                </div>
+                <div class="reschedule-row">
+                    <span class="reschedule-label">Time of Appointment</span>
+                    <input type="time" class="reschedule-input" id="rescheduleTime" />
+                </div>
+            </div>
+            <div class="reschedule-actions">
+                <button class="btn-reschedule-cancel" id="rescheduleCancelBtn">Cancel</button>
+                <button class="btn-reschedule-update" id="rescheduleUpdateBtn">Update Appointment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── SUCCESS TOAST ─── -->
+    <div class="toast-success" id="successToast">
+        <span class="toast-icon"><i class="bi bi-check-lg"></i></span>
+        <span class="toast-text">Appointment Updated</span>
+        <button class="toast-close" id="toastCloseBtn"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>My Appointments</h1>
+                <p>Manage your dental appointments</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='profile.html'">
+                <span class="user-name">Womark David Salita</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- UPCOMING APPOINTMENTS -->
+        <div class="section-header">
+            <h2>Upcoming Appointments</h2>
+        </div>
+        <button class="book-btn" onclick="window.location.href='book-appointment.html'">
+            <i class="fa-solid fa-plus"></i> Book Appointment
+        </button>
+
+        <div class="appointments-list">
+
+            <!-- Appointment 1: Cleaning -->
+            <div class="appointment-item" data-appt-id="1">
+                <div class="appt-info">
+                    <div class="appt-title">Cleaning</div>
+                    <div class="appt-subtitle">Regular checkup and cleaning</div>
+                    <div class="appt-meta">
+                        <span><i class="bi bi-tag"></i> Cleaning</span>
+                        <span><i class="bi bi-calendar3"></i> March 31</span>
+                        <span><i class="bi bi-clock"></i> 1:00 PM</span>
+                    </div>
+                </div>
+                <div class="appt-actions">
+                    <button class="btn btn-pending">Pending!</button>
+                    <button class="btn btn-outline reschedule-btn" data-appt-id="1">Reschedule</button>
+                    <button class="btn btn-danger cancel-btn" data-appt-id="1">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Appointment 2: Veneers -->
+            <div class="appointment-item" data-appt-id="2">
+                <div class="appt-info">
+                    <div class="appt-title">Veneers</div>
+                    <div class="appt-subtitle">Zirconia</div>
+                    <div class="appt-meta">
+                        <span><i class="bi bi-tag"></i> Veneers</span>
+                        <span><i class="bi bi-calendar3"></i> March 28</span>
+                        <span><i class="bi bi-clock"></i> 10:00 AM</span>
+                    </div>
+                </div>
+                <div class="appt-actions">
+                    <button class="btn btn-primary">Download</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- APPOINTMENT HISTORY -->
+        <div class="section-header" style="margin-top: 32px;">
+            <h2>Appointment History</h2>
+        </div>
+        <div class="card history-card">
+            <div class="history-list">
+                <div class="history-item">
+                    <div class="h-left">
+                        <div class="h-title">Root Canal Treatment</div>
+                        <div class="h-date">03/01/2026 at 12:00 PM</div>
+                    </div>
+                    <span class="h-status completed"><i class="bi bi-check-lg"></i> Completed</span>
+                </div>
+                <div class="history-item">
+                    <div class="h-left">
+                        <div class="h-title">Tooth Extraction</div>
+                        <div class="h-date">02/01/2026 at 3:00 PM</div>
+                    </div>
+                    <span class="h-status completed"><i class="bi bi-check-lg"></i> Completed</span>
+                </div>
+                <div class="history-item">
+                    <div class="h-left">
+                        <div class="h-title">Dental Consultation</div>
+                        <div class="h-date">02/12/2026 at 9:00 PM</div>
+                    </div>
+                    <span class="h-status completed"><i class="bi bi-check-lg"></i> Completed</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="dash-js/appointment.js"></script>
+</body>
+</html>

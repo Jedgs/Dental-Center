@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Patients | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="admin-css/admin-patient.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="admin-dash.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="admin-appointment.html"><i class="bi bi-person-vcard"></i> Appointments</a>
+            <a href="admin-book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="admin-services.html"><i class="fa-solid fa-tooth"></i> Services</a>
+            <a href="#" class="active"><i class="bi bi-people"></i> Patients</a>
+            <a href="admin-billing.html"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="admin-inventory.html"><i class="bi bi-box-seam"></i> Inventory</a>
+            <a href="admin-chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="admin-feedback.html"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="admin-settings.html"><i class="bi bi-gear"></i> Settings</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Patients</h1>
+                <p>Manage patients records and profiles</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='admin-settings.html'">
+                <span class="user-name">Admin Womark</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- ─── SEARCH BAR ─── -->
+        <div class="patient-toolbar">
+            <div class="search-wrapper">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search name here..." />
+            </div>
+        </div>
+
+        <!-- ─── PATIENTS TABLE ─── -->
+        <div class="table-wrapper">
+            <table class="patient-table" id="patientTable">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Sex</th>
+                        <th>Birthdate</th>
+                        <th>Contact</th>
+                        <th>Address</th>
+                        <th>Dental Insurance</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- rows inserted by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- ─── PATIENT RECORD MODAL ─── -->
+    <div class="patient-modal-overlay" id="patientModal">
+        <div class="patient-modal">
+            <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+
+            <h2>Patient Information Record</h2>
+            <p class="modal-sub">Manage Patient Information Record</p>
+
+            <div class="modal-grid">
+                <!-- Left column: Personal Info -->
+                <div class="modal-col">
+                    <div class="info-field">
+                        <span class="label">Name:</span>
+                        <span class="value" id="modalName">Ronan Slade Lopez</span>
+                    </div>
+                    <div class="info-field">
+                        <span class="label">Contact no.:</span>
+                        <span class="value" id="modalContact">09234534567</span>
+                    </div>
+                    <div class="info-field">
+                        <span class="label">Address:</span>
+                        <span class="value" id="modalAddress">Tangos, Baliuag, Bulacan</span>
+                    </div>
+                    <div class="info-field">
+                        <span class="label">Occupation:</span>
+                        <span class="value" id="modalOccupation">Engineer</span>
+                    </div>
+                </div>
+                <!-- Right column: More Personal Info -->
+                <div class="modal-col">
+                    <div class="info-field">
+                        <span class="label">Email:</span>
+                        <span class="value" id="modalEmail">ronanside@gmail.com</span>
+                    </div>
+                    <div class="info-field">
+                        <span class="label">Age:</span>
+                        <span class="value" id="modalAge">26</span>
+                    </div>
+                    <div class="info-field">
+                        <span class="label">Gender:</span>
+                        <span class="value" id="modalGender">Male</span>
+                    </div>
+                    <div class="info-field">
+                        <span class="label">Date of Birth:</span>
+                        <span class="value" id="modalDob">06/25/2000</span>
+                    </div>
+                    <div class="info-field">
+                        <span class="label">Dental insurance:</span>
+                        <span class="value" id="modalInsurance">None</span>
+                    </div>
+                    <div class="info-field">
+                        <span class="label">Effective Date:</span>
+                        <span class="value" id="modalEffective">N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dental History -->
+            <div class="modal-section">
+                <h3>Dental History</h3>
+                <div class="info-field">
+                    <span class="label">Previous Dentist:</span>
+                    <span class="value" id="modalPrevDentist">Dr. Marie Roque</span>
+                </div>
+                <div class="info-field">
+                    <span class="label">Last Dental Visit:</span>
+                    <span class="value" id="modalLastVisit">March 23, 2026</span>
+                </div>
+            </div>
+
+            <!-- Medical History -->
+            <div class="modal-section">
+                <h3>Medical History</h3>
+                <div class="info-field">
+                    <span class="label">Name of Physician:</span>
+                    <span class="value" id="modalPhysician">Dr. Marie Roque</span>
+                </div>
+                <div class="info-field">
+                    <span class="label">Clinic Address:</span>
+                    <span class="value" id="modalClinicAddr">Tangos Baliuag, Bulacan</span>
+                </div>
+                <div class="info-field">
+                    <span class="label">Specialty, if applicable:</span>
+                    <span class="value" id="modalSpecialty">None</span>
+                </div>
+                <div class="info-field">
+                    <span class="label">Office Number:</span>
+                    <span class="value" id="modalOfficeNum">09345678</span>
+                </div>
+            </div>
+
+            <!-- Medical Questions (list) -->
+            <div class="modal-section">
+                <h3>Medical Questionnaire</h3>
+                <ul class="medical-questions" id="modalQuestions">
+                    <li><strong>1. Are you in good health?</strong> Yes</li>
+                    <li><strong>2. Are you under medical treatment now?</strong> No</li>
+                    <li><strong>3. Have you ever had serious illness or surgical operation?</strong> No</li>
+                    <li><strong>4. Have you ever been hospitalized?</strong> No</li>
+                    <li><strong>5. Are taking any prescription/non-prescription medication?</strong> No</li>
+                    <li><strong>6. Do you use tobacco products?</strong> No</li>
+                    <li><strong>7. Do you use alcohol, cocaine, or other dangerous drugs?</strong> No</li>
+                </ul>
+            </div>
+
+            <!-- Actions -->
+             <div class="modal-actions">
+                <button class="btn-view-modal" id="modalViewBtn">View</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── LOGOUT CONFIRMATION MODAL ─── -->
+    <div class="logout-modal-overlay" id="logoutModal">
+        <div class="logout-modal">
+            <div class="modal-icon">
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
+            <h3>Logout?</h3>
+            <p>Are you sure you want to log out? You will be redirected to the login page.</p>
+            <div class="modal-actions">
+                <button class="btn-stay" id="stayBtn">Stay</button>
+                <button class="btn-logout" id="confirmLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </div>
+    <script src="admin-js/admin-patients.js"></script>
+</body>
+</html>

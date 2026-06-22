@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="dash-css/feedback.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="appointment.html"><i class="bi bi-person-vcard"></i> My Appointment</a>
+            <a href="book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="records.html"><i class="bi bi-file-earmark-text"></i> My Records</a>
+            <a href="billing.html"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="#" class="active"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Share Your Feedback</h1>
+                <p>Help us improve our services by sharing your experience</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='profile.html'">
+                <span class="user-name">Womark David Salita</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- ─── FEEDBACK FORM ─── -->
+        <section class="feedback-section">
+            <div class="feedback-card">
+                <h2>How would you rate your experience?</h2>
+
+                <!-- Star Rating -->
+                <div class="rating-stars" id="ratingStars">
+                    <i class="bi bi-star star" data-value="1"></i>
+                    <i class="bi bi-star star" data-value="2"></i>
+                    <i class="bi bi-star star" data-value="3"></i>
+                    <i class="bi bi-star star" data-value="4"></i>
+                    <i class="bi bi-star star" data-value="5"></i>
+                </div>
+
+                <form class="feedback-form" id="feedbackForm">
+                    <div class="form-group">
+                        <label for="feedbackCategory">Feedback Category</label>
+                        <select id="feedbackCategory" name="category" required>
+                            <option value="">-- Select a category --</option>
+                            <option value="overall">Overall Experience</option>
+                            <option value="dentist">Dentist Performance</option>
+                            <option value="staff">Staff Courtesy</option>
+                            <option value="cleanliness">Cleanliness</option>
+                            <option value="appointment">Appointment Scheduling</option>
+                            <option value="billing">Billing</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Your Feedback</label>
+                        <textarea id="comments" name="comments" rows="4" placeholder="Please share your feedback..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="bi bi-send"></i> Submit Feedback
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ─── FEEDBACK MATTERS ─── -->
+        <section class="why-matters">
+            <div class="matters-card">
+                <h3>Why Your Feedback Matters?</h3>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> Helps us improve our services</li>
+                    <li><i class="bi bi-check-circle"></i> Ensures patient satisfaction</li>
+                    <li><i class="bi bi-check-circle"></i> Builds trust with our community</li>
+                    <li><i class="bi bi-check-circle"></i> Enhances our website and online services</li>
+                    <li><i class="bi bi-check-circle"></i> Encourages continuous improvement</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="dash-js/feedback.js"></script>
+</body>
+
+</html>

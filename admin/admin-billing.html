@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Billing | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="admin-css/admin-billing.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="admin-dash.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="admin-appointment.html"><i class="bi bi-person-vcard"></i> Appointments</a>
+            <a href="admin-book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="admin-services.html"><i class="fa-solid fa-tooth"></i> Services</a>
+            <a href="admin-patients.html"><i class="bi bi-people"></i> Patients</a>
+            <a href="#" class="active"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="admin-inventory.html"><i class="bi bi-box-seam"></i> Inventory</a>
+            <a href="admin-chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="admin-feedback.html"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="admin-settings.html"><i class="bi bi-gear"></i> Settings</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Billing</h1>
+                <p>Manage billing and payment records</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='admin-settings.html'">
+                <span class="user-name">Admin Womark</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-card stat-blue">
+                <div class="stat-label">Total Revenue</div>
+                <div class="stat-value" id="totalRevenue">0</div>
+            </div>
+            <div class="stat-card stat-yellow">
+                <div class="stat-label">Pending Payments</div>
+                <div class="stat-value" id="pendingTotal">0</div>
+            </div>
+        </div>
+
+        <!-- ─── TOOLBAR ─── -->
+        <div class="billing-toolbar">
+            <div class="search-wrapper">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search conversations here..." />
+            </div>
+            <div class="filter-group">
+                <label for="statusFilter">Filter by Status:</label>
+                <select id="statusFilter">
+                    <option value="all">All</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Pending">Pending</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ─── BILLING TABLE ─── -->
+        <div class="table-wrapper">
+            <table class="billing-table" id="billingTable">
+                <thead>
+                    <tr>
+                        <th>Bill Number</th>
+                        <th>Invoice Date</th>
+                        <th>Patient Name</th>
+                        <th>Service</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- rows inserted by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- ─── VIEW BILL MODAL (updated to match user billing UI) ─── -->
+    <div class="bill-modal-overlay" id="billModal">
+        <div class="bill-modal">
+            <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+            <div class="clinic-header">
+                <div class="clinic-logo">
+                    <img src="/img/Screenshot 2026-03-22 123631 1.png">
+                </div>
+                <div class="clinic-info">
+                    <h2>Pablo-De Jesus <span>Dental Center</span></h2>
+                    <p>Tangos Baliuag, Bulacan</p>
+                    <p>pdjdentolcenter@gmail.com</p>
+                    <p>09234563456</p>
+                </div>
+            </div>
+
+            <!-- Billing Details + Patient Info side by side -->
+            <div class="modal-info-grid">
+                <!-- Billing Details -->
+                <div class="billing-details">
+                    <h3>Billing Details</h3>
+                    <p class="section-subtitle">Complete billing information</p>
+                    <p><strong>Bill Number:</strong> <span id="modalBillNumber">BILL-B0016</span></p>
+                    <p><strong>Invoice Date:</strong> <span id="modalInvoiceDate">3/20/28</span></p>
+                </div>
+
+                <!-- Patient Information -->
+                <div class="patient-info">
+                    <h3>Patient Information</h3>
+                    <div class="patient-info-grid">
+                        <p><strong>Name:</strong> <span id="modalPatientName">Ronan Slade Lopez</span></p>
+                        <p><strong>Age:</strong> <span id="modalPatientAge">26</span></p>
+                        <p><strong>Address:</strong> <span id="modalPatientAddress">134 Boliuog Buiocon</span></p>
+                        <p><strong>Gender:</strong> <span id="modalPatientGender">Male</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treatment Table -->
+            <div class="treatment-table">
+                <h3>Treatment Record</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Service</th>
+                            <th>Procedure</th>
+                            <th>Dentist/s</th>
+                            <th>Amount charged</th>
+                            <th>Amount paid</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="modalDate">March 20, 2025</td>
+                            <td id="modalService">Orthodontic Treatment/Braces</td>
+                            <td id="modalProcedure">Adjust</td>
+                            <td id="modalDentist">Dr. Bobbie Salazar</td>
+                            <td id="modalAmountCharged">1,000</td>
+                            <td id="modalAmountPaid">1,000</td>
+                            <td id="modalBalance">23,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Next Monthly Bill -->
+            <div class="next-bill">
+                <p><strong>Next Monthly bill:</strong> <span id="modalNextBill">1,000 | 04-20-2026</span></p>
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer">
+                <p>Thank you for choosing Pablo - De Jesus Dental Center for your dental care. For any inquiries, please contact 0908-001-0376 or 0945-271-0981.</p>
+            </div>
+
+            <!-- Modal Actions -->
+            <div class="modal-actions">
+                <button class="btn-close-modal" id="modalCloseAction">Close</button>
+                <button class="btn-download-modal" id="modalDownloadAction"><i class="bi bi-download"></i> Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── LOGOUT CONFIRMATION MODAL ─── -->
+    <div class="logout-modal-overlay" id="logoutModal">
+        <div class="logout-modal">
+            <div class="modal-icon">
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
+            <h3>Logout?</h3>
+            <p>Are you sure you want to log out? You will be redirected to the login page.</p>
+            <div class="modal-actions">
+                <button class="btn-stay" id="stayBtn">Stay</button>
+                <button class="btn-logout" id="confirmLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-js/admin-billing.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="dash-css/dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="active"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="appointment.html"><i class="bi bi-person-vcard"></i> My Appointment</a>
+            <a href="book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="records.html"><i class="bi bi-file-earmark-text"></i> My Records</a>
+            <a href="billing.html"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="feedback.html"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Welcome, Womark!</h1>
+                <p>Pablo De Jesus Dental Center</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='profile.html'">
+                <span class="user-name">Womark David Salita</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-card stat-green">
+                <div class="stat-label">Total Visit</div>
+                <div class="stat-value">13</div>
+            </div>
+            <div class="stat-card stat-blue">
+                <div class="stat-label">Upcoming Appointment</div>
+                <div class="stat-value">1</div>
+            </div>
+            <div class="stat-card stat-pink">
+                <div class="stat-label">Balance</div>
+                <div class="stat-value">2,500</div>
+            </div>
+        </div>
+
+        <!-- NEXT APPOINTMENT -->
+        <div class="next-appt-card">
+            <div class="appt-card-header">
+                <h3>Your Next Appointment</h3>
+                <span class="confirmed-badge"><i class="bi bi-check-lg"></i> Confirmed</span>
+            </div>
+
+            <div class="appt-details-grid">
+                <div class="appt-detail-col">
+                    <div class="appt-detail">
+                        <i class="fa-solid fa-tooth"></i>
+                        <div>
+                            <span class="detail-label">Service</span>
+                            <span class="detail-value">Cleaning</span>
+                        </div>
+                    </div>
+                    <div class="appt-detail">
+                        <i class="bi bi-person"></i>
+                        <div>
+                            <span class="detail-label">Dentist</span>
+                            <span class="detail-value">Dr. Rafael De Jesus</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="appt-detail-col">
+                    <div class="appt-detail">
+                        <i class="bi bi-calendar3"></i>
+                        <div>
+                            <span class="detail-label">Date</span>
+                            <span class="detail-value">March 31</span>
+                        </div>
+                    </div>
+                    <div class="appt-detail">
+                        <i class="bi bi-clock"></i>
+                        <div>
+                            <span class="detail-label">Time</span>
+                            <span class="detail-value">1:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="view-details-btn" onclick="window.location.href='appointment.html'">View Details</button>
+        </div>
+
+        <!-- DASHBOARD GRID -->
+        <div class="dashboard-grid">
+
+            <!-- APPOINTMENT HISTORY -->
+            <div class="card history-card">
+                <div class="card-header">
+                    <h3>Appointment History</h3>
+                </div>
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="h-left">
+                            <div class="h-title">Root Canal Treatment</div>
+                            <div class="h-date">02/29/2026 at 1:00 PM</div>
+                        </div>
+                        <span class="h-status confirmed"><i class="bi bi-check-lg"></i> Confirmed</span>
+                    </div>
+                    <div class="history-item">
+                        <div class="h-left">
+                            <div class="h-title">Dental Filling</div>
+                            <div class="h-date">01/15/2026 at 10:30 AM</div>
+                        </div>
+                        <span class="h-status completed"><i class="bi bi-check-lg"></i> Completed</span>
+                    </div>
+                    <div class="history-item">
+                        <div class="h-left">
+                            <div class="h-title">Braces Adjustment</div>
+                            <div class="h-date">12/10/2025 at 3:00 PM</div>
+                        </div>
+                        <span class="h-status cancelled">Cancelled</span>
+                    </div>
+                    <div class="history-item">
+                        <div class="h-left">
+                            <div class="h-title">Teeth Whitening</div>
+                            <div class="h-date">11/05/2025 at 9:00 AM</div>
+                        </div>
+                        <span class="h-status pending">Pending</span>
+                    </div>
+                    <button class="view-btn" onclick="window.location.href='appointment.html'">View All
+                        Appointments</button>
+                </div>
+            </div>
+
+            <!-- QUICK ACTIONS -->
+            <div class="quick-actions-section">
+                <div class="card-header">
+                    <h3>Quick Actions</h3>
+                </div>
+                <div class="qa-grid">
+                    <button class="qa-card" onclick="location.href='appointment.html'">
+                        <i class="bi bi-plus-lg"></i>
+                        <span>Book New Appointment</span>
+                    </button>
+                    <button class="qa-card" onclick="location.href='billing.html'">
+                        <i class="bi bi-receipt"></i>
+                        <span>View Billing</span>
+                    </button>
+                    <button class="qa-card" onclick="location.href='chatbox.html'">
+                        <i class="bi bi-chat-dots"></i>
+                        <span>Chat with Us</span>
+                    </button>
+                    <button class="qa-card" onclick="location.href='feedback.html'">
+                        <i class="bi bi-star-fill"></i>
+                        <span>Leave Feedback</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- ─── LOGOUT CONFIRMATION MODAL ─── -->
+        <div class="logout-modal-overlay" id="logoutModal">
+            <div class="logout-modal">
+                <div class="modal-icon">
+                    <i class="bi bi-box-arrow-right"></i>
+                </div>
+                <h3>Logout?</h3>
+                <p>Are you sure you want to log out? You will be redirected to the login page.</p>
+                <div class="modal-actions">
+                    <button class="btn-stay" id="stayBtn">Stay</button>
+                    <button class="btn-logout" id="confirmLogoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="dash-js/dashboard.js"></script>
+</body>
+
+</html>

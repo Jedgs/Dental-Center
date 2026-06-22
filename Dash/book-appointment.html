@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="dash-css/book-appointment.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="appointment.html"><i class="bi bi-person-vcard"></i> My Appointment</a>
+            <a href="#" class="active"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="records.html"><i class="bi bi-file-earmark-text"></i> My Records</a>
+            <a href="billing.html"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="feedback.html"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Select Your Services</h1>
+                <p>Choose one or more services to add to your treatment plan</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='profile.html'">
+                <span class="user-name">Womark David Salita</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- ─── SERVICES GRID ─── -->
+        <div class="booking-grid">
+
+            <!-- LEFT: Choose Services -->
+            <section class="services-section">
+                <div class="services-card">
+                    <h2>Choose Services</h2>
+                    <p class="sub-text">Select one or more services. You can add multiple services in a single appointment.</p>
+
+                    <div class="services-list" id="servicesList">
+
+                        <!-- Regular service: Dental Consultation -->
+                        <label class="service-item" data-name="Dental Consultation" data-price="800" data-duration="20">
+                            <input type="checkbox" class="service-checkbox">
+                            <span class="checkmark"></span>
+                            <div class="service-content">
+                                <span class="service-title">Dental Consultation</span>
+                                <span class="service-desc">A oral examination where the dentist evaluates your teeth, gums, and overall oral health.</span>
+                                <span class="service-meta"><span class="price">₱800</span> · <span class="duration">20 mins</span></span>
+                            </div>
+                        </label>
+
+                        <!-- Regular service: Oral Examination -->
+                        <label class="service-item" data-name="Oral Examination" data-price="300" data-duration="20">
+                            <input type="checkbox" class="service-checkbox">
+                            <span class="checkmark"></span>
+                            <div class="service-content">
+                                <span class="service-title">Oral Examination</span>
+                                <span class="service-desc">Assessment of teeth, gums, and oral health.</span>
+                                <span class="service-meta"><span class="price">₱300</span> · <span class="duration">20 mins</span></span>
+                            </div>
+                        </label>
+
+                        <!-- Regular service: TMJ Consultation -->
+                        <label class="service-item" data-name="TMJ Consultation" data-price="800" data-duration="30">
+                            <input type="checkbox" class="service-checkbox">
+                            <span class="checkmark"></span>
+                            <div class="service-content">
+                                <span class="service-title">TMJ Consultation</span>
+                                <span class="service-desc">Evaluation of jaw pain and temporomandibular joint issues.</span>
+                                <span class="service-meta"><span class="price">₱800</span> · <span class="duration">30 mins</span></span>
+                            </div>
+                        </label>
+
+                        <!-- ─── ORAL PROPHYLAXIS with dropdown ─── -->
+                        <div class="service-item service-with-dropdown" data-name="Oral Prophylaxis">
+                            <div class="service-content" style="width:100%;">
+                                <div class="service-header" style="display:flex; align-items:center; gap:12px; width:100%;">
+                                    <span class="service-title">Oral Prophylaxis</span>
+                                    <span class="service-meta" style="margin-left:auto;"><span class="price">₱800–1,900</span></span>
+                                    <button class="dropdown-toggle" type="button">More Info</button>
+                                </div>
+                                <span class="service-desc">A professional oral cleaning procedure.</span>
+                                <div class="dropdown-content">
+                                    <label class="sub-service-item" data-name="Basic Cleaning" data-price="800" data-duration="30">
+                                        <input type="checkbox" class="sub-service-checkbox" name="prophy">
+                                        <span class="sub-checkmark"></span>
+                                        <div class="sub-content">
+                                            <span class="sub-title">Basic Cleaning</span>
+                                            <span class="sub-desc">A routine cleaning that removes minor plaque.</span>
+                                            <span class="sub-meta"><span class="sub-price">₱800</span> · 30 mins</span>
+                                        </div>
+                                    </label>
+                                    <label class="sub-service-item" data-name="Standard Cleaning" data-price="1200" data-duration="45">
+                                        <input type="checkbox" class="sub-service-checkbox" name="prophy">
+                                        <span class="sub-checkmark"></span>
+                                        <div class="sub-content">
+                                            <span class="sub-title">Standard Cleaning</span>
+                                            <span class="sub-desc">Comprehensive cleaning, polishing, and root scaling.</span>
+                                            <span class="sub-meta"><span class="sub-price">₱1,200</span> · 45 mins</span>
+                                        </div>
+                                    </label>
+                                    <label class="sub-service-item" data-name="Deep Cleaning" data-price="1900" data-duration="60">
+                                        <input type="checkbox" class="sub-service-checkbox" name="prophy">
+                                        <span class="sub-checkmark"></span>
+                                        <div class="sub-content">
+                                            <span class="sub-title">Deep Cleaning</span>
+                                            <span class="sub-desc">Advanced cleaning procedure to help treat gum disease.</span>
+                                            <span class="sub-meta"><span class="sub-price">₱1,900</span> · 60 mins</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Note: The "Oral Prophylaxis" itself is not selectable; only its sub-options -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT: Selected Services & Summary -->
+            <section class="summary-section">
+                <div class="summary-card">
+                    <h2>Your Selected Services</h2>
+                    <div id="selectedServicesContainer">
+                        <!-- Dynamically populated -->
+                        <div class="selected-placeholder">No services selected yet.</div>
+                    </div>
+
+                    <div class="summary-totals">
+                        <div class="total-row">
+                            <span class="total-label">Total Services:</span>
+                            <span class="total-value" id="totalCount">0</span>
+                        </div>
+                        <div class="total-row">
+                            <span class="total-label">Est. Duration:</span>
+                            <span class="total-value" id="totalDuration">0 min</span>
+                        </div>
+                        <div class="total-row highlight">
+                            <span class="total-label">Total Cost:</span>
+                            <span class="total-value" id="totalCost">₱0</span>
+                        </div>
+                    </div>
+                    <p class="disclaimer">The estimated time is the total duration of all selected services. The actual time may vary depending on the doctor.</p>
+                    <div class="summary-actions">
+                        <button class="btn-proceed" id="proceedBtn">Proceed to Schedule</button>
+                        <button class="btn-clear" id="clearBtn">Clear All Selections</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="dash-js/book-appointment.js"></script>
+</body>
+</html>

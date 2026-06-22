@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dentist Appointments | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="dentist-css/dentist-appointment.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dentist-dash.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="#" class="active"><i class="bi bi-person-vcard"></i> Appointments</a>
+            <a href="dentist-patients.html"><i class="bi bi-people"></i> Patients Records</a>
+            <a href="dentist-chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="dentist-settings.html"><i class="bi bi-gear"></i> Settings</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Appointments</h1>
+                <p>Manage dental appointments</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='dentist-settings.html'">
+                <span class="user-name">Doc Womark</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- ─── FILTER & SEARCH ─── -->
+        <div class="appointment-toolbar">
+            <div class="search-wrapper">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search patient..." />
+            </div>
+            <div class="filter-group">
+                <label for="statusFilter">Status</label>
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="Service Ongoing">Service Ongoing</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ─── APPOINTMENTS TABLE ─── -->
+        <div class="table-wrapper">
+            <table class="appointment-table">
+                <thead>
+                    <tr>
+                        <th>PATIENT NAME</th>
+                        <th>DATE</th>
+                        <th>TIME</th>
+                        <th>SERVICE</th>
+                        <th>STATUS</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- rows inserted by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- ─── EDIT APPOINTMENT MODAL ─── -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="editModalClose">&times;</button>
+            <h2>Services</h2>
+
+            <!-- Service Dropdown -->
+            <div class="form-group">
+                <label for="editServiceSelect">Service</label>
+                <select id="editServiceSelect">
+                    <!-- populated by JavaScript -->
+                </select>
+            </div>
+
+            <!-- Date Picker -->
+            <div class="form-group">
+                <label for="editDateInput">Date of Appointment</label>
+                <input type="date" id="editDateInput" />
+            </div>
+
+            <!-- Time Picker -->
+            <div class="form-group">
+                <label for="editTimeInput">Time of Appointment</label>
+                <input type="time" id="editTimeInput" step="60" />
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-save" id="editSaveBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── DECLINE CONFIRMATION MODAL ─── -->
+    <div class="modal-overlay" id="declineModal">
+        <div class="modal-content decline-modal">
+            <button class="modal-close-btn" id="declineModalClose">&times;</button>
+            <div class="modal-icon">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+            <h3>Decline Appointment?</h3>
+            <p>Are you sure you want to decline this appointment? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="declineCancelBtn">Cancel</button>
+                <button class="btn-confirm-decline" id="declineConfirmBtn">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── LOGOUT CONFIRMATION MODAL ─── -->
+    <div class="logout-modal-overlay" id="logoutModal">
+        <div class="logout-modal">
+            <div class="modal-icon">
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
+            <h3>Logout?</h3>
+            <p>Are you sure you want to log out? You will be redirected to the login page.</p>
+            <div class="modal-actions">
+                <button class="btn-stay" id="stayBtn">Stay</button>
+                <button class="btn-logout" id="confirmLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </div>
+    <script src="dentist-js/dentist-appointment.js"></script>
+</body>
+</html>

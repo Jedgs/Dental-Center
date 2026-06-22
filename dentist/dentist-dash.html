@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dentist Dashboard | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="dentist-css/dentist-dash.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="active"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="dentist-appointment.html"><i class="bi bi-person-vcard"></i> Appointments</a>
+            <a href="dentist-patients.html"><i class="bi bi-people"></i> Patients Records</a>
+            <a href="dentist-chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="dentist-settings.html"><i class="bi bi-gear"></i> Settings</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Dashboard</h1>
+                <p>Pablo De Jesus Dental Center</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='dentist-settings.html'">
+                <span class="user-name">Welcome, Doc Womark</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-card stat-blue">
+                <div class="stat-label">Total Patients</div>
+                <div class="stat-value">1234</div>
+            </div>
+            <div class="stat-card stat-green">
+                <div class="stat-label">Today’s Appointments</div>
+                <div class="stat-value">12</div>
+            </div>
+            <div class="stat-card stat-yellow">
+                <div class="stat-label">Pending Appointment</div>
+                <div class="stat-value">8</div>
+            </div>
+        </div>
+
+        <!-- ─── SCHEDULES + CALENDAR ─── -->
+        <div class="dashboard-grid">
+
+            <!-- TODAY'S SCHEDULES -->
+            <div class="schedule-section">
+                <div class="card">
+                    <h3>Today's Schedules</h3>
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <div class="schedule-item-top">
+                                <span class="schedule-patient">Emily Davis</span>
+                                <span class="status-badge scheduled">Scheduled</span>
+                            </div>
+                            <div class="schedule-item-details">
+                                <div class="schedule-detail">
+                                    <i class="fa-solid fa-tooth"></i>
+                                    <div>
+                                        <span class="detail-label">Service</span>
+                                        <span class="detail-value">Veneers</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-detail">
+                                    <i class="bi bi-calendar3"></i>
+                                    <div>
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">March 28</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-detail">
+                                    <i class="bi bi-clock"></i>
+                                    <div>
+                                        <span class="detail-label">Time</span>
+                                        <span class="detail-value">6:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div class="schedule-item-top">
+                                <span class="schedule-patient">David Martinez</span>
+                                <span class="status-badge scheduled">Scheduled</span>
+                            </div>
+                            <div class="schedule-item-details">
+                                <div class="schedule-detail">
+                                    <i class="fa-solid fa-tooth"></i>
+                                    <div>
+                                        <span class="detail-label">Service</span>
+                                        <span class="detail-value">Cleaning</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-detail">
+                                    <i class="bi bi-calendar3"></i>
+                                    <div>
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">March 29</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-detail">
+                                    <i class="bi bi-clock"></i>
+                                    <div>
+                                        <span class="detail-label">Time</span>
+                                        <span class="detail-value">3:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div class="schedule-item-top">
+                                <span class="schedule-patient">Kalix Ramirez</span>
+                                <span class="status-badge scheduled">Scheduled</span>
+                            </div>
+                            <div class="schedule-item-details">
+                                <div class="schedule-detail">
+                                    <i class="fa-solid fa-tooth"></i>
+                                    <div>
+                                        <span class="detail-label">Service</span>
+                                        <span class="detail-value">Dental Consultation</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-detail">
+                                    <i class="bi bi-calendar3"></i>
+                                    <div>
+                                        <span class="detail-label">Date</span>
+                                        <span class="detail-value">March 30</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-detail">
+                                    <i class="bi bi-clock"></i>
+                                    <div>
+                                        <span class="detail-label">Time</span>
+                                        <span class="detail-value">3:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CALENDAR -->
+            <div class="calendar-section">
+                <div class="card">
+                    <div class="calendar-header">
+                        <h3>March 2026</h3>
+                    </div>
+                    <table class="calendar-table">
+                        <thead>
+                            <tr>
+                                <th>SUN</th>
+                                <th>MON</th>
+                                <th>TUE</th>
+                                <th>WED</th>
+                                <th>THU</th>
+                                <th>FRI</th>
+                                <th>SAT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                            </tr>
+                            <tr>
+                                <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+                            </tr>
+                            <tr>
+                                <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+                            </tr>
+                            <tr>
+                                <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+                            </tr>
+                            <tr>
+                                <td>27</td><td>28</td><td><span class="today">29</span></td><td>30</td><td>31</td><td></td><td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ─── UPCOMING APPOINTMENTS ─── -->
+        <div class="upcoming-section">
+            <div class="card">
+                <h3>Upcoming Appointments</h3>
+                <p class="upcoming-subtitle">Next 5 scheduled appointments</p>
+                <p class="upcoming-placeholder">No upcoming appointments</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- ─── LOGOUT CONFIRMATION MODAL ─── -->
+    <div class="logout-modal-overlay" id="logoutModal">
+        <div class="logout-modal">
+            <div class="modal-icon">
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
+            <h3>Logout?</h3>
+            <p>Are you sure you want to log out? You will be redirected to the login page.</p>
+            <div class="modal-actions">
+                <button class="btn-stay" id="stayBtn">Stay</button>
+                <button class="btn-logout" id="confirmLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </div>
+    <script src="dentist-js/dentist-dash.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing | Pablo-De Jesus Dental Center</title>
+    <link rel="stylesheet" href="dash-css/billing.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- ─── SIDEBAR TOGGLE (mobile) ─── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- ─── SIDEBAR OVERLAY ─── -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>Pablo-De Jesus<br /><span>Dental Center</span></h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html"><i class="bi bi-house"></i> Dashboard</a>
+            <a href="appointment.html"><i class="bi bi-person-vcard"></i> My Appointment</a>
+            <a href="book-appointment.html"><i class="bi bi-calendar2-plus"></i> Book Appointment</a>
+            <a href="records.html"><i class="bi bi-file-earmark-text"></i> My Records</a>
+            <a href="#" class="active"><i class="bi bi-receipt"></i> Billing</a>
+            <a href="chatbox.html"><i class="bi bi-chat-dots"></i> Chatbox</a>
+            <a href="feedback.html"><i class="bi bi-star-fill"></i> Feedback</a>
+            <a href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#" class="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="greeting">
+                <h1>Billing</h1>
+                <p>Manage your billing and payment records</p>
+            </div>
+            <div class="user-actions" onclick="window.location.href='profile.html'">
+                <span class="user-name">Womark David Salita</span>
+                <i class="bi bi-person-circle user-avatar"></i>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-card stat-green">
+                <div class="stat-label">Total Amount</div>
+                <div class="stat-value">25,000</div>
+            </div>
+            <div class="stat-card stat-blue">
+                <div class="stat-label">Paid</div>
+                <div class="stat-value">16,000</div>
+            </div>
+            <div class="stat-card stat-pink">
+                <div class="stat-label">Balance</div>
+                <div class="stat-value">9,000</div>
+            </div>
+        </div>
+
+        <!-- ─── BILLING LIST ─── -->
+        <div class="billing-list">
+
+            <!-- Bill 1 -->
+            <div class="bill-item">
+                <div class="bill-top">
+                    <div class="bill-info">
+                        <div class="bill-title">Orthodontic Treatment/Braces</div>
+                        <div class="bill-date">March 20, 2026</div>
+                    </div>
+                    <div class="bill-meta">
+                        <div class="bill-amount">1,000</div>
+                        <div class="bill-status status-paid"><i class="bi bi-check2"></i> Paid</div>
+                    </div>
+                </div>
+                <div class="bill-actions">
+                    <button class="btn-view" data-bill-id="BILL-B0016"><i class="bi bi-eye"></i> View Bill</button>
+                    <button class="btn-download" data-bill-id="BILL-B0016"><i class="bi bi-download"></i> Download</button>
+                </div>
+            </div>
+
+            <!-- Bill 2 -->
+            <div class="bill-item">
+                <div class="bill-top">
+                    <div class="bill-info">
+                        <div class="bill-title">Orthodontic Treatment/Braces</div>
+                        <div class="bill-date">February 20, 2026</div>
+                    </div>
+                    <div class="bill-meta">
+                        <div class="bill-amount">1,000</div>
+                        <div class="bill-status status-paid"><i class="bi bi-check2"></i> Paid</div>
+                    </div>
+                </div>
+                <div class="bill-actions">
+                    <button class="btn-view" data-bill-id="BILL-B0015"><i class="bi bi-eye"></i> View Bill</button>
+                    <button class="btn-download" data-bill-id="BILL-B0015"><i class="bi bi-download"></i> Download</button>
+                </div>
+            </div>
+
+            <!-- Bill 3 -->
+            <div class="bill-item">
+                <div class="bill-top">
+                    <div class="bill-info">
+                        <div class="bill-title">Dental Consultation</div>
+                        <div class="bill-date">January 15, 2026</div>
+                    </div>
+                    <div class="bill-meta">
+                        <div class="bill-amount">800</div>
+                        <div class="bill-status status-paid"><i class="bi bi-check2"></i> Paid</div>
+                    </div>
+                </div>
+                <div class="bill-actions">
+                    <button class="btn-view" data-bill-id="BILL-B0014"><i class="bi bi-eye"></i> View Bill</button>
+                    <button class="btn-download" data-bill-id="BILL-B0014"><i class="bi bi-download"></i> Download</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ─── BILL DETAILS MODAL ─── -->
+    <div class="bill-modal-overlay" id="billModal">
+        <div class="bill-modal">
+            <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+
+            <!-- Clinic Header: logo left, info right -->
+            <div class="clinic-header">
+                <div class="clinic-logo">
+                    <img src="/img/Screenshot 2026-03-22 123631 1.png" alt="Clinic Logo">
+                </div>
+                <div class="clinic-info">
+                    <h2>Pablo-De Jesus <span>Dental Center</span></h2>
+                    <p>Tongos Boliuog, Buiocon</p>
+                    <p>pdjdentolcenter@gmail.com</p>
+                    <p>09234563456</p>
+                </div>
+            </div>
+
+            <!-- Billing Details + Patient Info side by side -->
+            <div class="modal-info-grid">
+                <!-- Billing Details -->
+                <div class="billing-details">
+                    <h3>Billing Details</h3>
+                    <p class="section-subtitle">Complete billing information</p>
+                    <p><strong>Bill Number:</strong> <span id="modalBillNumber">BILL-B0016</span></p>
+                    <p><strong>Invoice Date:</strong> <span id="modalInvoiceDate">3/20/28</span></p>
+                </div>
+
+                <!-- Patient Information -->
+                <div class="patient-info">
+                    <h3>Patient Information</h3>
+                    <div class="patient-info-grid">
+                        <p><strong>Name:</strong> Ronan Slade Lopez</p>
+                        <p><strong>Age:</strong> 26</p>
+                        <p><strong>Address:</strong> 134 Boliuog Buiocon</p>
+                        <p><strong>Gender:</strong> Male</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treatment Table -->
+            <div class="treatment-table">
+                <h3>Treatment Record</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Service</th>
+                            <th>Procedure</th>
+                            <th>Dentist/s</th>
+                            <th>Amount charged</th>
+                            <th>Amount paid</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>March 20, 2025</td>
+                            <td>Orthodontic Treatment/Braces</td>
+                            <td>Adjust</td>
+                            <td>Dr. Bobbie Salazar</td>
+                            <td>1,000</td>
+                            <td>1,000</td>
+                            <td>23,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Next Monthly Bill -->
+            <div class="next-bill">
+                <p><strong>Next Monthly bill:</strong> <span id="modalNextBill">1,000 | 04-20-2026</span></p>
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer">
+                <p>Thank you for choosing Pablo - De Jesus Dental Center for your dental care. For any inquiries, please contact 0908-001-0376 or 0945-271-0981.</p>
+            </div>
+
+            <!-- Modal Actions -->
+            <div class="modal-actions">
+                <button class="btn-close-modal" id="modalCloseAction">Close</button>
+                <button class="btn-download-modal" id="modalDownloadAction"><i class="bi bi-download"></i> Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── TOAST NOTIFICATION ─── -->
+    <div class="toast-success" id="downloadToast">
+        <span class="toast-icon"><i class="bi bi-check-circle-fill"></i></span>
+        <span class="toast-text">Billing downloaded successfully</span>
+        <button class="toast-close" id="toastCloseBtn"><i class="bi bi-x-lg"></i></button>
+    </div>
+
+    <script src="dash-js/billing.js"></script>
+</body>
+</html>
